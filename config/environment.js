@@ -2,23 +2,22 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'polyportal',
-    environment: environment,
     baseURL: '/',
     locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+    environment: environment,
+    modulePrefix: 'polyportal',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'style-src': "'self' 'unsafe-inline' 'unsafe-eval' fonts.googleapis.com code.ionicframework.com",
+      'font-src': "'self' 'unsafe-inline' 'unsafe-eval' fonts.gstatic.com code.ionicframework.com",
     },
-
+    
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
-
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -40,7 +39,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/polyportal';
+    ENV.locationType = 'hash';
   }
 
   return ENV;

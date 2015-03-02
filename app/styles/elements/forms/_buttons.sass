@@ -1,0 +1,42 @@
+/*-----------  Button Mixin  -----------*/
+
+$all-buttons: assign-inputs('button' '.button' 'input[type="submit"]' 'input[type="button"]')
+
+#{$all-buttons}
+  color: $white
+  outline: none
+  cursor: pointer
+  font-size: 1.25rem
+  text-align: center
+  letter-spacing: -0.01em
+  border: 1px solid $orange
+  background-color: $orange
+  padding: 0.4em 1.45em 0.42em
+  @include transition(0.3s)
+  @include inline-block()
+  @include header-font()
+
+  &:hover
+    border-color: $orangeDark
+    background-color: $orangeDark
+
+  &.alt
+    border-color: $white
+    background-color: rgba($white, 0)
+    @include antialiased()
+  
+    &:hover
+      border-color: $white
+      background-color: rgba($white, 0.2)
+
+  i
+    line-height: 100%
+    vertical-align: middle
+    margin: 0 0.67em 0 -0.33em
+
+  &.disabled
+  &[disabled],
+    cursor: not-allowed
+    border-color: $grayLighter
+    background-color: $grayLighter
+

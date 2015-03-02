@@ -1,0 +1,50 @@
+$modalSpeed: 0.33s
+
+/*-----------  Modals  -----------*/
+
+.modal-wrapper
+  left: 0
+  top: -100%
+  width: 100%
+  height: 100%
+  padding: 3.33em
+  z-index: 100000
+  position: fixed
+  overflow-x: auto
+  overflow-y: scroll
+  background-color: rgba(0,0,0,0)
+  @include transition(top 0 $modalSpeed, background-color $modalSpeed)
+
+  .modal-block
+    opacity: 0
+    margin: auto
+    margin-top: -10em
+    position: relative
+    text-align: center
+    max-width: $blockWidth
+    background-color: $black
+    box-shadow: 0.5em 0.5em 2em rgba($grayDarker, 0.4)
+    @include transition(margin-top $modalSpeed, opacity $modalSpeed/2 $modalSpeed/2)
+
+    .youtube-wrapper
+      height: 0
+      width: 100%
+      position: relative
+      padding-bottom: 56.25%
+
+      .icon-spin
+        color: $gray
+        font-size: 2em
+        @include center-align(absolute)
+
+  /*-----------  Animations  -----------*/
+
+  &.show-modal
+    top: 0
+    background-color: rgba(0,0,0,0.45)
+    @include transition(top 0, background-color $modalSpeed)
+
+    .modal-block
+      opacity: 1
+      margin-top: 0
+      @include transition(margin-top $modalSpeed, opacity $modalSpeed)

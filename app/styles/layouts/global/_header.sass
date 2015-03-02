@@ -1,0 +1,56 @@
+/*-----------  Header  -----------*/
+
+.global-header
+  position: relative
+  background: $orange
+  text-align: center
+  border-bottom: 3px solid $orangeDark
+
+  .header-logo
+    fill: $white
+    height: auto
+    vertical-align: bottom
+
+  /*-----------  Public  -----------*/
+
+  &.public
+  
+    .header-logo
+      height: auto
+      width: 7.95em
+      padding: 1.1em 0 0.33em
+
+    h1
+      color: $white
+      font-size: 0.84em
+      margin-bottom: 1.05em
+      letter-spacing: 0.05em
+      @include body-font(true)
+
+  /*-----------  Private  -----------*/
+
+  &.private
+
+    .header-logo
+      width: 4em
+      padding: 0.55em 0
+
+    .back-button
+      left: 0.25em
+      color: $white
+      font-size: 1.33em
+      @include vertical-align()
+
+      i
+        line-height: 275%
+        @include transform(rotate(180deg))
+        @include inline-block()
+
+        &:before
+          @include antialiased(false)
+
+    .logout-button
+      right: 0.5em
+      color: $white
+      font-size: 0.8em
+      @include vertical-align()
